@@ -1,7 +1,20 @@
 import React from "react";
 import {motion, scale, spring} from "motion/react"
 import { FcGoogle } from "react-icons/fc";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../utils/firebase";
 function Auth(){
+
+   const handleGoogleAuth = async ()=>{
+    try {
+      const response = await signInWithPopup(auth, provider)
+     const User = response.user;
+     const name = User.displayName;
+     const email = User.email;
+    } catch (error) {
+      
+    }
+   }
     return (
       <div className="min-h-screen overflow-hidden bg-white text-black px-8">
         <motion.header
@@ -39,6 +52,7 @@ function Auth(){
             </h1>
 
             <motion.button
+             onClick= {handleGoogleAuth}
               whileHover={{ y: -10, rotateX: 8, rotateY: -8, scale: 1.07 }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: spring, stiffness: 200, damping: 30 }}
