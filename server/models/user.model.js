@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
         unique : true,
         required : true,
        },
-       credtits:{
+       credits:{
         type: Number,
         default :50,
         min :0,

@@ -3,8 +3,9 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Auth from './Pages/Auth'
 import Home from './Pages/Home'
+
+export const serverUrl = "http://localhost:8000"
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
    <>
